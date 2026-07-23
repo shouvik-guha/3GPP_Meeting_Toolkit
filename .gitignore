@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Eval run artifacts / scratch (kept local, not part of the toolkit)
+*-workspace/
+timings*.jsonl
+grading_summary.json
+
+# 3GPP source documents supplied by the user at runtime (don't commit meeting docs)
+*.docx
+*.xlsx
+*.doc
+*.xls
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

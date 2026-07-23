@@ -1,0 +1,15 @@
+{
+  "skill_name": "agenda-locator",
+  "notes": "HARD set for iteration-2, run on a weaker model (Haiku). Queries use bare acronyms, misspellings, and cross-release red herrings so the matching-guide (acronym expansion + release routing) is actually load-bearing. Ground truth verified against RAN2#134 agenda tree.",
+  "model": "haiku",
+  "evals": [
+    {"id": 0, "name": "ncr-corrections-acronym", "prompt": "which RAN2#134 agenda item is for NCR essential corrections?", "expected_agenda": "6.0.2.2", "why_hard": "NCR must be expanded to 'network-controlled repeaters'; it's a Rel-18 maintenance item"},
+    {"id": 1, "name": "ambient-iot-org-misspelled", "prompt": "where's the ambiant IoT organisational item in the agenda?", "expected_agenda": "7.2.1", "why_hard": "misspelling of 'Ambient'; must pick the .1 Organizational sub-item"},
+    {"id": 2, "name": "xr-rel18-release-trap", "prompt": "where do the rel-18 XR papers go in RAN2#134?", "expected_agenda": "6.0.2.16", "why_hard": "XR appears as Rel-18 (6.0.2.16), Rel-19 Ph3 (7.7), Rel-20 Ph4 (8.5)"},
+    {"id": 3, "name": "lpwus-org-acronym", "prompt": "LP-WUS org agenda item?", "expected_agenda": "7.4.1", "why_hard": "acronym LP-WUS = Low-Power Wake-Up Signal; 'org' = Organizational .1"},
+    {"id": 4, "name": "sbfd-org-acronym", "prompt": "SBFD organizational — which agenda item?", "expected_agenda": "7.11.1", "why_hard": "SBFD = Sub-band Full Duplex; .1 Organizational"},
+    {"id": 5, "name": "ntn-rel17-corrections-trap", "prompt": "Rel-17 NTN corrections agenda item?", "expected_agenda": "5.3", "why_hard": "NTN spans 4.3 (EUTRA), 5.3 (NR Rel-17), 7.8 (Ph3), 8.8; Rel-17 -> section 5"},
+    {"id": 6, "name": "navic-obscure", "prompt": "which agenda item covers the NavIC papers?", "expected_agenda": "7.15", "why_hard": "obscure standalone Rel-19 item"},
+    {"id": 7, "name": "mobile-iab-rel18", "prompt": "mobile IAB rel-18 — agenda item?", "expected_agenda": "6.0.2.6", "why_hard": "IAB = Integrated Access and Backhaul; Rel-18 maintenance item"}
+  ]
+}

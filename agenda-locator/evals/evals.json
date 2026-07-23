@@ -1,0 +1,63 @@
+{
+  "skill_name": "agenda-locator",
+  "notes": "Topic->agenda classification accuracy, focused on release/domain disambiguation traps. Ground truth verified against the real RAN2#134 TDoc list (tdoc counts in parens). Files referenced by every eval: agenda R2-2602901.docx, TDoc list tdocList_2026-05-22_13h34_eom.xlsx, Chair's Notes R2_134_ChairNotes_22-05-26_final_clean.docx.",
+  "assertion_note": "Primary assertion for every eval: the saved answer names `expected_agenda` as its concluded agenda item (for the ambiguous eval-7, either of the '|'-separated numbers passes, and the other should appear as an alternative). Iteration-1 result: with-skill 8/8, baseline 8/8.",
+  "evals": [
+    {
+      "id": 0,
+      "name": "lcm-two-sided-topic",
+      "prompt": "In the RAN2#134 agenda, which agenda item covers 'LCM for two-sided model', and which companies submitted papers under it?",
+      "expected_output": "Agenda 8.1.2 (LCM for two-sided model), 24 tdocs incl. Ericsson/OPPO/vivo/Qualcomm etc.",
+      "expected_agenda": "8.1.2"
+    },
+    {
+      "id": 1,
+      "name": "aiml-air-corrections-rel19-trap",
+      "prompt": "Which RAN2#134 agenda item is for essential corrections to AI/ML for the NR air interface in Rel-19?",
+      "expected_output": "Agenda 7.1.2 (Corrections, under 7.1 AI/ML for NR air interface). NOT 8.1 (Rel-20 PHY) nor 8.3 (Rel-20 AI/ML mobility).",
+      "expected_agenda": "7.1.2"
+    },
+    {
+      "id": 2,
+      "name": "aiml-mobility-rrm-domain-trap",
+      "prompt": "Where does 'RRM measurement prediction' for AI/ML-based mobility belong in the RAN2#134 agenda?",
+      "expected_output": "Agenda 8.3.2 (RRM measurement prediction, under 8.3 AI/ML for mobility, Rel-20). NOT the AI/ML air-interface items (7.1 / 8.1).",
+      "expected_agenda": "8.3.2"
+    },
+    {
+      "id": 3,
+      "name": "nes-corrections-rel19",
+      "prompt": "Rel-19 Network Energy Saving corrections — which RAN2#134 agenda item, and list the tdocs and their sources.",
+      "expected_output": "Agenda 7.5.2 (Corrections, under 7.5 Network Energy Saving Enh.), 12 tdocs.",
+      "expected_agenda": "7.5.2"
+    },
+    {
+      "id": 4,
+      "name": "iot-ntn-ph4-sps-multi-release",
+      "prompt": "The paper is about 'details of the SPS solution' for IoT NTN Phase 4. Which RAN2#134 agenda item?",
+      "expected_output": "Agenda 8.7.2 (Details of the SPS solution, under 8.7 IoT NTN Ph4, Rel-20). NOT Rel-18 (6.0.2.18) or Rel-19 IoT NTN Ph3 (7.9).",
+      "expected_agenda": "8.7.2"
+    },
+    {
+      "id": 5,
+      "name": "tdoc-id-lookup",
+      "prompt": "For RAN2#134, which agenda item is tdoc R2-2603536 filed under, and who is the source company?",
+      "expected_output": "Agenda 8.1.2 (LCM for two-sided model); source Ericsson. Direct lookup.",
+      "expected_agenda": "8.1.2"
+    },
+    {
+      "id": 6,
+      "name": "sbfd-corrections",
+      "prompt": "Which RAN2#134 agenda item handles Sub-band full duplex (SBFD) corrections?",
+      "expected_output": "Agenda 7.11.2 (Corrections, under 7.11 Evolution of NR duplex operation: SBFD), 3 tdocs.",
+      "expected_agenda": "7.11.2"
+    },
+    {
+      "id": 7,
+      "name": "ambiguous-data-collection",
+      "prompt": "Which RAN2#134 agenda item is about AI/ML data collection?",
+      "expected_output": "Genuinely ambiguous without a domain cue: 8.1.3 (NW side data collection, PHY) vs 8.3.4 (Data collection, mobility). A good answer picks one and offers the other as an alternative.",
+      "expected_agenda": "8.1.3|8.3.4"
+    }
+  ]
+}
