@@ -36,3 +36,6 @@ and expose the `scripts/` and `references/` files.
 
 ## Requirements
 Python 3 (use `python3` if `python` is unavailable). No third-party libraries.
+
+## License
+[MIT](LICENSE) © 2026 Shouvik Guha
